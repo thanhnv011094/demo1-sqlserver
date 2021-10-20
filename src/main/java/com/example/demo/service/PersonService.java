@@ -25,12 +25,19 @@ public class PersonService implements IGeneralService<Person> {
     }
 	
 	@Override
-    public Person save(Person person){
+    public Person save(Person newPerson){
+		Person person = new Person(newPerson.getFirstName(), newPerson.getLastName(), newPerson.getAge());
+        return repository.saveAndFlush(person);
+    }
+	
+	@Override
+    public Person update(Person person, long id){
+		person.setId(id);
         return repository.saveAndFlush(person);
     }
 
     @Override
-    public void remove(Long id){
+    public void remove(long id){
         repository.deleteById(id);
     }
 }

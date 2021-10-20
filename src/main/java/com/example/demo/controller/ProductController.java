@@ -4,8 +4,8 @@ import com.example.demo.entity.*;
 import org.springframework.web.bind.annotation.*;
  
 @RestController
-@RequestMapping("/api/v1/persons")
+@RequestMapping("/api/v1/products")
 @CrossOrigin
-public class PersonController extends BaseController<Person> {
+public class ProductController extends BaseController<Product> {
 	
 }
