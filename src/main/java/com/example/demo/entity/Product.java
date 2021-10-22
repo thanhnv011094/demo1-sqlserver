@@ -1,40 +1,44 @@
 package com.example.demo.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "Products")
+@Table(name = "products")
 public class Product {
 
 	@Column(name = "id", nullable = false, unique = true)
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) long id;
-	
+
 	@Column(name = "thumbnail", nullable = true)
-    private String thumbnail;
-	
+	private String thumbnail;
+
 	@Column(name = "name", nullable = true)
-    private String name;
+	private String name;
 
 	@Column(name = "description", nullable = true)
 	private String description;
-	
+
 	@Column(name = "price", nullable = true)
 	private double price;
-	
+
 	@Column(name = "ref", nullable = true)
 	private String ref;
 
-	 
 	public Product() {
-    }
-    
-    public Product(String thumbnail, String name, String description, double price, String ref) {
-    	this.thumbnail = thumbnail;
-    	this.name = name;
-    	this.description = description;
-    	this.price=price;
-    	this.ref = ref;
-    }
+	}
+
+	public Product(String thumbnail, String name, String description, double price, String ref) {
+		this.thumbnail = thumbnail;
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.ref = ref;
+	}
 
 	public long getId() {
 		return id;
@@ -83,6 +87,5 @@ public class Product {
 	public void setRef(String ref) {
 		this.ref = ref;
 	}
-    
-    
+
 }

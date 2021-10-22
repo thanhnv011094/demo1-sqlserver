@@ -1,42 +1,46 @@
 package com.example.demo.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "Persons")
+@Table(name = "persons")
 public class Person {
 
 	@Column(name = "id", nullable = false, unique = true)
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) long id;
-	
+
 	@Column(name = "first_name", nullable = true)
-    private String firstName;
-	
+	private String firstName;
+
 	@Column(name = "last_name", nullable = false)
-    private String lastName;
+	private String lastName;
 
 	@Column(name = "age", nullable = true)
 	private int age;
 
-	 
 	public Person() {
-    }
-    
-    public Person(String firstName, String lastName, int age) {
-    	this.firstName = firstName;
-    	this.lastName = lastName;
-    	this.age = age;
-    }
-    
-    public long getId() {
-        return id;
-    }
-    
-    public void setId(long id) {
+	}
+
+	public Person(String firstName, String lastName, int age) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
 		this.id = id;
 	}
-    
-    public String getFirstName() {
+
+	public String getFirstName() {
 		return firstName;
 	}
 

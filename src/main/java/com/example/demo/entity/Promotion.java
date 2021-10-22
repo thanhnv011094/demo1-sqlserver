@@ -3,23 +3,29 @@ package com.example.demo.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "Promotions")
+@Table(name = "promotions")
 public class Promotion {
 
 	@Column(name = "id", nullable = false, unique = true)
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) long id;
-	
+
 	@Column(name = "code", nullable = true)
-    private String code;
-	
+	private String code;
+
 	@Column(name = "discount", nullable = true)
-    private float discount;
-	
+	private float discount;
+
 	@OneToMany(mappedBy = "promotion")
-    private List<Order> orders;
+	private List<Order> orders;
 
 	public long getId() {
 		return id;

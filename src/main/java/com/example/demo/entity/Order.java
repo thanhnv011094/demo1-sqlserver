@@ -1,20 +1,27 @@
 package com.example.demo.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "Orders")
+@Table(name = "orders")
 public class Order {
 
 	@Column(name = "id", nullable = false, unique = true)
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) long id;
-	
+
 	@Column(name = "tax", nullable = true)
-    private float tax;
-	
+	private float tax;
+
 	@ManyToOne
-    @JoinColumn(name="promotion_id")
-    private Promotion promotion;
+	@JoinColumn(name = "promotion_id")
+	private Promotion promotion;
 
 	public long getId() {
 		return id;
@@ -23,7 +30,7 @@ public class Order {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
+
 	public float getTax() {
 		return tax;
 	}
@@ -49,5 +56,5 @@ public class Order {
 		this.tax = tax;
 		this.promotion = promotion;
 	}
-	
+
 }
